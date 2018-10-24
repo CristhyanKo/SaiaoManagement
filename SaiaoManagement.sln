@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saiao.Domain", "API\Saiao.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saiao.Data", "API\Saiao.Data\Saiao.Data.csproj", "{9E6F159A-9C64-42EC-A0CC-2E9C09ABB8EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saiao.Api", "API\Saiao.Api\Saiao.Api.csproj", "{666FFB23-B93A-4FC2-9975-F0F10EE751FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{9E6F159A-9C64-42EC-A0CC-2E9C09ABB8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E6F159A-9C64-42EC-A0CC-2E9C09ABB8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E6F159A-9C64-42EC-A0CC-2E9C09ABB8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{666FFB23-B93A-4FC2-9975-F0F10EE751FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{666FFB23-B93A-4FC2-9975-F0F10EE751FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{666FFB23-B93A-4FC2-9975-F0F10EE751FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{666FFB23-B93A-4FC2-9975-F0F10EE751FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E99CAD52-07C8-44EA-B591-E3756C03F417} = {3E5A101E-1C85-4A48-A28D-8818AE201911}
 		{9E6F159A-9C64-42EC-A0CC-2E9C09ABB8EE} = {3E5A101E-1C85-4A48-A28D-8818AE201911}
+		{666FFB23-B93A-4FC2-9975-F0F10EE751FB} = {3E5A101E-1C85-4A48-A28D-8818AE201911}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F206B652-F70E-4D6A-8C1E-89D7EC9E69E4}
