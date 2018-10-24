@@ -13,7 +13,7 @@ namespace Saiao.Data.Repositories
 
         public IRepositoryClass Alterar(IRepositoryClass classe)
         {
-            Cargo cargo = (Cargo)classe; // Usar uma interface vazia e fazer coverão explicita ou usar generics e fazer reflection para a conversão ???
+            var cargo = (Cargo)classe; // Usar uma interface vazia e fazer coverão explicita ou usar generics e fazer reflection para a conversão ???
             //ValidaClasse
             //ValidaDuplicidade
 
@@ -38,7 +38,7 @@ namespace Saiao.Data.Repositories
 
         public IRepositoryClass Incluir(IRepositoryClass classe)
         {
-            Cargo cargo = (Cargo)classe;
+            var cargo = (Cargo)classe;
             //ValidaClasse
             //ValidaDuplicidade
 

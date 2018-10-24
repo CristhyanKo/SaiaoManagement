@@ -7,7 +7,7 @@ namespace Saiao.Data.Mappings
     {
         public CargoMap()
         {
-            ToTable("Cargo");
+            ToTable(nameof(Cargo));
 
             HasKey(coluna => coluna.Id);
             Property(coluna => coluna.Descricao).IsRequired();
