@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Saiao.Domain.Contract.Repositories;
+using System;
 
 namespace Saiao.Domain.Model
 {
-    public class Usuario
+    public class Usuario : IRepositoryClass
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public int CargoId { get; set; }
+        public Guid CargoId { get; set; }
         public virtual Cargo Cargo { get; set; }
 
         public void CriaSenha(string senha, string reSenha) {

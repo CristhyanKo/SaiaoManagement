@@ -1,4 +1,5 @@
 ﻿using Saiao.Domain.Contract.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -52,7 +53,7 @@ namespace Saiao.Api.Controllers
             return repository.Buscar();
         }
 
-        protected IRepositoryClass Buscar(IRepositoryDefault repository, int id)
+        protected IRepositoryClass Buscar(IRepositoryDefault repository, Guid id)
         {
             return repository.Buscar(id);
         }
@@ -67,7 +68,7 @@ namespace Saiao.Api.Controllers
             return repository.Alterar(classe);
         }
 
-        protected void Excluir(IRepositoryDefault repository, int id)
+        protected void Excluir(IRepositoryDefault repository, Guid id)
         {
             repository.Excluir(id);
         }

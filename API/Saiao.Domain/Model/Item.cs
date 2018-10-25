@@ -1,8 +1,11 @@
-﻿namespace Saiao.Domain.Model
+﻿using Saiao.Domain.Contract.Repositories;
+using System;
+
+namespace Saiao.Domain.Model
 {
-    public class Item
+    public class Item : IRepositoryClass
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Descricao { get; set; }
     }
 }

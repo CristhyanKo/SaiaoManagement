@@ -39,7 +39,7 @@ namespace Saiao.Api.Controllers
 
         [Route("cargo/{id}")]
         [HttpGet]
-        public HttpResponseMessage GetFromId(int id)
+        public HttpResponseMessage GetFromId(Guid id)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace Saiao.Api.Controllers
 
         [Route("cargo/id")]
         [HttpDelete]
-        public HttpResponseMessage Delete(int id)
+        public HttpResponseMessage Delete(Guid id)
         {
             try
             {

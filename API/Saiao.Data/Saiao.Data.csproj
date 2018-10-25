@@ -58,6 +58,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CargoRepository.cs" />
     <Compile Include="Repositories\ItemRepository.cs" />
+    <Compile Include="Repositories\SaiaoItemRepository.cs" />
+    <Compile Include="Repositories\SaiaoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Saiao.Common\Saiao.Common.csproj">

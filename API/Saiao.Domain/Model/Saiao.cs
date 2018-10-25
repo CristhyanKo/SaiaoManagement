@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Saiao.Domain.Contract.Repositories;
+using System;
 
 namespace Saiao.Domain.Model
 {
-    public class Saiao
+    public class Saiao : IRepositoryClass
     {
-        public int Id { get; set; }
-        public int UsuarioId { get; set; }
+        public Guid Id { get; set; }
+        public Guid UsuarioId { get; set; }
         public DateTime Data { get; set; }
         public string Motivo { get; set; }
 
