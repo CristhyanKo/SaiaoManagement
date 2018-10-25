@@ -2,7 +2,7 @@
 
 namespace Saiao.Domain.Contract.Repositories
 {
-    public interface IRepositoryPessoaTelefone : IRepositoryClassBase
+    public interface IRepositoryPessoaTelefone : IRepositoryBase
     {
         IRepositoryClassBase DefinirComoPrincipal(Guid pessoaId, Guid telefoneId);
     }

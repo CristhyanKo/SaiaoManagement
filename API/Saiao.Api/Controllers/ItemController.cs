@@ -89,7 +89,7 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("item/id")]
+        [Route("item/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(Guid id)
         {

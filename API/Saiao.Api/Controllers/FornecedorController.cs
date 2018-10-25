@@ -89,7 +89,7 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("fornecedor/id")]
+        [Route("fornecedor/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(Guid id)
         {
@@ -106,6 +106,4 @@ namespace Saiao.Api.Controllers
 
         #endregion
     }
-
-
 }

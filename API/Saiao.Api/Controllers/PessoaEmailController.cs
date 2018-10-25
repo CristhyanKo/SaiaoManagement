@@ -10,26 +10,26 @@ using System.Web.Http;
 namespace Saiao.Api.Controllers
 {
     [RoutePrefix("api/v1")]
-    public class CargoController : ControllerBase
+    public class PessoaEmailController : ControllerBase
     {
-        private CargoRepository _cargoRepository { get; set; }
+        private PessoaEmailRepository _pessoaEmailRepository { get; set; }
         private SaiaoDataContext _context { get; set; }
 
-        public CargoController()
+        public PessoaEmailController()
         {
             _context = new SaiaoDataContext();
-            _cargoRepository = new CargoRepository(_context);
+            _pessoaEmailRepository = new PessoaEmailRepository(_context);
         }
 
         #region "HTTP Methods"
 
-        [Route("cargo")]
+        [Route("pessoaEmail")]
         [HttpGet]
         public HttpResponseMessage Get()
         {
             try
             {
-                var result = Buscar(_cargoRepository);
+                var result = Buscar(_pessoaEmailRepository);
                 return SucessRequestClass(result);
             }
             catch (Exception)
@@ -38,13 +38,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("cargo/{id}")]
+        [Route("pessoaEmail/{id}")]
         [HttpGet]
         public HttpResponseMessage GetFromId(Guid id)
         {
             try
             {
-                var result = Buscar(_cargoRepository, id);
+                var result = Buscar(_pessoaEmailRepository, id);
                 return SucessRequestClass(result);
             }
             catch (Exception)
@@ -53,13 +53,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("cargo")]
+        [Route("pessoaEmail")]
         [HttpPost]
-        public HttpResponseMessage Post(Cargo cargo)
+        public HttpResponseMessage Post(PessoaEmail pessoaEmail)
         {
             try
             {
-                var result = Incluir(_cargoRepository, cargo);
+                var result = Incluir(_pessoaEmailRepository, pessoaEmail);
                 return SucessRequestClass(result);
             }
             catch (Exception ex)
@@ -71,13 +71,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("cargo")]
+        [Route("pessoaEmail")]
         [HttpPut]
-        public HttpResponseMessage Put(Cargo cargo)
+        public HttpResponseMessage Put(PessoaEmail pessoaEmail)
         {
             try
             {
-                var result = Alterar(_cargoRepository, cargo);
+                var result = Alterar(_pessoaEmailRepository, pessoaEmail);
                 return SucessRequestClass(result);
             }
             catch (Exception ex)
@@ -89,13 +89,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("cargo/{id}")]
+        [Route("pessoaEmail/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(Guid id)
         {
             try
             {
-                Excluir(_cargoRepository, id);
+                Excluir(_pessoaEmailRepository, id);
                 return SucessRequestMessage(SucessMessage.RegistroIncluido);
             }
             catch (Exception)
@@ -106,6 +106,4 @@ namespace Saiao.Api.Controllers
 
         #endregion
     }
-
-
 }

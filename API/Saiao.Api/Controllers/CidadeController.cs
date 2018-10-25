@@ -89,7 +89,7 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("cidade/id")]
+        [Route("cidade/{id}")]
         [HttpDelete]
         public HttpResponseMessage Delete(Guid id)
         {
