@@ -2,8 +2,8 @@
 
 namespace Saiao.Domain.Contract.Repositories
 {
-    public interface IUsuarioRepository
+    public interface IUsuarioRepository : IRepositoryClassBase
     {
-        Usuario AutenticaUsuario(Usuario usuario);
+        void AutenticaUsuario(Usuario usuario);
     }
 }

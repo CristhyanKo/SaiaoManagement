@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Saiao.Data.Repositories
 {
-    public class PessoaEmailRepository : IRepositoryBase
+    public class PessoaEmailRepository : IRepositoryPessoaEmail
     {
         private readonly SaiaoDataContext _db;
         public PessoaEmailRepository(SaiaoDataContext context) => _db = context;

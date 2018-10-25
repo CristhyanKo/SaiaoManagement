@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace Saiao.Data.Repositories
 {
-    public class UsuarioRepository : IRepositoryBase
+    public class UsuarioRepository : IUsuarioRepository
     {
         private readonly SaiaoDataContext _db;
         public UsuarioRepository(SaiaoDataContext context) => _db = context;
@@ -50,15 +50,7 @@ namespace Saiao.Data.Repositories
 
         public void EfetuaLogin(IRepositoryClassBase classe)
         {
-            var usuario = (Usuario)classe;
-            usuario.Senha = usuario.Senha.Encrypta();
-
-            var usr = (from item in _db.Usuarios.Include(nameof(PessoaEmail))
-                           where item.PessoaEmail.Email == (usuario.PessoaEmail.Email) && item.Senha == (usuario.Senha)
-                           select item).FirstOrDefault();
-
-            if (usr == null)
-                throw new UsuarioInvalidoException(ErrorMessage.UsuarioNaoEncontrado);
+            
         }
 
         private void ValidaDuplicidade(Usuario usuario)
@@ -69,6 +61,18 @@ namespace Saiao.Data.Repositories
 
             if (result != null)
                 throw new DuplicidadeRegistroException(ErrorMessage.RegistroDuplicado);
+        }
+
+        public void AutenticaUsuario(Usuario usuario)
+        {
+            usuario.Senha = usuario.Senha.Encrypta();
+
+            var usr = (from item in _db.Usuarios.Include(nameof(PessoaEmail))
+                       where item.PessoaEmail.Email == (usuario.PessoaEmail.Email) && item.Senha == (usuario.Senha)
+                       select item).FirstOrDefault();
+
+            if (usr == null)
+                throw new UsuarioInvalidoException(ErrorMessage.UsuarioNaoEncontrado);
         }
     }
 }

@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="Contract\Repositories\IRepositoryClassBase.cs" />
     <Compile Include="Contract\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Contract\Repositories\IRepositoryPessoaEmail.cs" />
+    <Compile Include="Contract\Repositories\IRepositoryPessoaEndereco.cs" />
+    <Compile Include="Contract\Repositories\IRepositoryPessoaTelefone.cs" />
     <Compile Include="Contract\Repositories\IUsuarioRepository.cs" />
     <Compile Include="Model\Cargo.cs" />
     <Compile Include="Model\Cidade.cs" />
