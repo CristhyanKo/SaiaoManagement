@@ -1,4 +1,5 @@
 ﻿using Saiao.Domain.Model;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace Saiao.Data.Mappings
@@ -7,9 +8,10 @@ namespace Saiao.Data.Mappings
     {
         public FornecedorMap()
         {
-            ToTable(nameof(Cargo));
+            ToTable(nameof(Fornecedor));
 
             HasKey(coluna => coluna.Id);
+            Property(coluna => coluna.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(coluna => coluna.PessoaId).IsRequired();
             Property(coluna => coluna.Descricao).IsRequired();
 

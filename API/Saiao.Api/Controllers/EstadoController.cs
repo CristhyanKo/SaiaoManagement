@@ -10,26 +10,26 @@ using System.Web.Http;
 namespace Saiao.Api.Controllers
 {
     [RoutePrefix("api/v1")]
-    public class ItemController : ControllerBase
+    public class EstadoController : ControllerBase
     {
-        private ItemRepository _itemRepository { get; set; }
+        private EstadoRepository _estadoRepository { get; set; }
         private SaiaoDataContext _context { get; set; }
 
-        public ItemController()
+        public EstadoController()
         {
             _context = new SaiaoDataContext();
-            _itemRepository = new ItemRepository(_context);
+            _estadoRepository = new EstadoRepository(_context);
         }
 
         #region "HTTP Methods"
 
-        [Route("item")]
+        [Route("estado")]
         [HttpGet]
         public HttpResponseMessage Get()
         {
             try
             {
-                var result = Buscar(_itemRepository);
+                var result = Buscar(_estadoRepository);
                 return SucessRequestClass(result);
             }
             catch (Exception)
@@ -38,13 +38,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("item/{id}")]
+        [Route("estado/{id}")]
         [HttpGet]
         public HttpResponseMessage GetFromId(Guid id)
         {
             try
             {
-                var result = Buscar(_itemRepository, id);
+                var result = Buscar(_estadoRepository, id);
                 return SucessRequestClass(result);
             }
             catch (Exception)
@@ -53,13 +53,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("item")]
+        [Route("estado")]
         [HttpPost]
-        public HttpResponseMessage Post(Item item)
+        public HttpResponseMessage Post(Cargo cidade)
         {
             try
             {
-                var result = Incluir(_itemRepository, item);
+                var result = Incluir(_estadoRepository, cidade);
                 return SucessRequestClass(result);
             }
             catch (Exception ex)
@@ -71,13 +71,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("item")]
+        [Route("estado")]
         [HttpPut]
-        public HttpResponseMessage Put(Item item)
+        public HttpResponseMessage Put(Cargo cidade)
         {
             try
             {
-                var result = Alterar(_itemRepository, item);
+                var result = Alterar(_estadoRepository, cidade);
                 return SucessRequestClass(result);
             }
             catch (Exception ex)
@@ -89,13 +89,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("item/id")]
+        [Route("estado/id")]
         [HttpDelete]
         public HttpResponseMessage Delete(Guid id)
         {
             try
             {
-                Excluir(_itemRepository, id);
+                Excluir(_estadoRepository, id);
                 return SucessRequestMessage(SucessMessage.RegistroIncluido);
             }
             catch (Exception)
@@ -105,5 +105,7 @@ namespace Saiao.Api.Controllers
         }
 
         #endregion
-    }   
-}   
+    }
+
+
+}

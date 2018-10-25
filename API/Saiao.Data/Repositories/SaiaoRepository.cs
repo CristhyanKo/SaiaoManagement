@@ -47,6 +47,7 @@ namespace Saiao.Data.Repositories
         public IRepositoryClassBase Incluir(IRepositoryClassBase classe)
         {
             var saiao = (Domain.Model.Saiao)classe;
+
             ValidaDuplicidade(saiao);
 
             _db.Saioes.Add(saiao);

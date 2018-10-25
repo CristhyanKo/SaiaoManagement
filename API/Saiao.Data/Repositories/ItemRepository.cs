@@ -20,6 +20,8 @@ namespace Saiao.Data.Repositories
             ValidaDuplicidade(item);
 
             _db.Entry(item).State = System.Data.Entity.EntityState.Modified;
+            //_db.Entry(item.Fornecedor).State = System.Data.Entity.EntityState.Modified;
+            //_db.Entry(item.Fornecedor.Pessoa).State = System.Data.Entity.EntityState.Modified;
             _db.SaveChanges();
 
             return item;
@@ -38,6 +40,7 @@ namespace Saiao.Data.Repositories
         public IRepositoryClassBase Incluir(IRepositoryClassBase classe)
         {
             var item = (Item)classe;
+
             ValidaDuplicidade(item);
 
             _db.Itens.Add(item);

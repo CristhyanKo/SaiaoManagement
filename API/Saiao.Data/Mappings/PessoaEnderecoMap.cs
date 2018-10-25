@@ -1,4 +1,5 @@
 ﻿using Saiao.Domain.Model;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace Saiao.Data.Mappings
@@ -10,6 +11,7 @@ namespace Saiao.Data.Mappings
             ToTable(nameof(PessoaEndereco));
 
             HasKey(coluna => coluna.Id);
+            Property(coluna => coluna.Id).IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(coluna => coluna.Cep).IsRequired();
             Property(coluna => coluna.Bairro).IsRequired();
             Property(coluna => coluna.Logradouro).IsRequired();
@@ -19,7 +21,7 @@ namespace Saiao.Data.Mappings
             Property(coluna => coluna.EstadoId).IsRequired();
             Property(coluna => coluna.CidadeId).IsRequired();
 
-            HasRequired(coluna => coluna.Estado);
+            HasRequired(coluna => coluna.Estado).WithMany().WillCascadeOnDelete(false);
             HasRequired(coluna => coluna.Cidade);
         }
     }

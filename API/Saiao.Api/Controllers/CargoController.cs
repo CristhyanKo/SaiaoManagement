@@ -13,11 +13,12 @@ namespace Saiao.Api.Controllers
     public class CargoController : ControllerBase
     {
         private CargoRepository _cargoRepository { get; set; }
+        private SaiaoDataContext _context { get; set; }
 
         public CargoController()
         {
-            var context = new SaiaoDataContext();
-            _cargoRepository = new CargoRepository(context);
+            _context = new SaiaoDataContext();
+            _cargoRepository = new CargoRepository(_context);
         }
 
         #region "HTTP Methods"

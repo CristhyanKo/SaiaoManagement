@@ -10,26 +10,26 @@ using System.Web.Http;
 namespace Saiao.Api.Controllers
 {
     [RoutePrefix("api/v1")]
-    public class ItemController : ControllerBase
+    public class FornecedorController : ControllerBase
     {
-        private ItemRepository _itemRepository { get; set; }
+        private FornecedorRepository _fornecedorRepository { get; set; }
         private SaiaoDataContext _context { get; set; }
 
-        public ItemController()
+        public FornecedorController()
         {
             _context = new SaiaoDataContext();
-            _itemRepository = new ItemRepository(_context);
+            _fornecedorRepository = new FornecedorRepository(_context);
         }
 
         #region "HTTP Methods"
 
-        [Route("item")]
+        [Route("fornecedor")]
         [HttpGet]
         public HttpResponseMessage Get()
         {
             try
             {
-                var result = Buscar(_itemRepository);
+                var result = Buscar(_fornecedorRepository);
                 return SucessRequestClass(result);
             }
             catch (Exception)
@@ -38,13 +38,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("item/{id}")]
+        [Route("fornecedor/{id}")]
         [HttpGet]
         public HttpResponseMessage GetFromId(Guid id)
         {
             try
             {
-                var result = Buscar(_itemRepository, id);
+                var result = Buscar(_fornecedorRepository, id);
                 return SucessRequestClass(result);
             }
             catch (Exception)
@@ -53,13 +53,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("item")]
+        [Route("fornecedor")]
         [HttpPost]
-        public HttpResponseMessage Post(Item item)
+        public HttpResponseMessage Post(Cargo fornecedor)
         {
             try
             {
-                var result = Incluir(_itemRepository, item);
+                var result = Incluir(_fornecedorRepository, fornecedor);
                 return SucessRequestClass(result);
             }
             catch (Exception ex)
@@ -71,13 +71,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("item")]
+        [Route("fornecedor")]
         [HttpPut]
-        public HttpResponseMessage Put(Item item)
+        public HttpResponseMessage Put(Cargo fornecedor)
         {
             try
             {
-                var result = Alterar(_itemRepository, item);
+                var result = Alterar(_fornecedorRepository, fornecedor);
                 return SucessRequestClass(result);
             }
             catch (Exception ex)
@@ -89,13 +89,13 @@ namespace Saiao.Api.Controllers
             }
         }
 
-        [Route("item/id")]
+        [Route("fornecedor/id")]
         [HttpDelete]
         public HttpResponseMessage Delete(Guid id)
         {
             try
             {
-                Excluir(_itemRepository, id);
+                Excluir(_fornecedorRepository, id);
                 return SucessRequestMessage(SucessMessage.RegistroIncluido);
             }
             catch (Exception)
@@ -105,5 +105,7 @@ namespace Saiao.Api.Controllers
         }
 
         #endregion
-    }   
-}   
+    }
+
+
+}

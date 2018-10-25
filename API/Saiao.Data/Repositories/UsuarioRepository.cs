@@ -39,6 +39,7 @@ namespace Saiao.Data.Repositories
         public IRepositoryClassBase Incluir(IRepositoryClassBase classe)
         {
             var usuario = (Usuario)classe;
+
             ValidaDuplicidade(usuario);
 
             _db.Usuarios.Add(usuario);

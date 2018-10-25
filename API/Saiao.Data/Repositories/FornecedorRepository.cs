@@ -38,6 +38,7 @@ namespace Saiao.Data.Repositories
         public IRepositoryClassBase Incluir(IRepositoryClassBase classe)
         {
             var fornecedor = (Fornecedor)classe;
+
             ValidaDuplicidade(fornecedor);
 
             _db.Fornecedores.Add(fornecedor);

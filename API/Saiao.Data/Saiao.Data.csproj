@@ -63,6 +63,7 @@
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PessoaEmailRepository.cs" />
     <Compile Include="Repositories\PessoaTelefoneRepository.cs" />
     <Compile Include="Repositories\PessoaEnderecoRepository.cs" />
     <Compile Include="Repositories\PessoaRepository.cs" />

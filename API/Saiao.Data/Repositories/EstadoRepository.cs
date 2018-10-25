@@ -48,6 +48,7 @@ namespace Saiao.Data.Repositories
         public IRepositoryClassBase Incluir(IRepositoryClassBase classe)
         {
             var estado = (Estado)classe;
+
             ValidaDuplicidade(estado);
 
             _db.Estados.Add(estado);
