@@ -135,4 +135,7 @@
   <data name="RegistroIncluido" xml:space="preserve">
     <value>Falha ao tentar incluir o registro.</value>
   </data>
+  <data name="UsuarioNaoEncontrado" xml:space="preserve">
+    <value>Usuário não encontrado.</value>
+  </data>
 </root>

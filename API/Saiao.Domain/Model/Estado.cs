@@ -3,9 +3,10 @@ using System;
 
 namespace Saiao.Domain.Model
 {
-    public class Cargo : IRepositoryClassBase
+    public class Estado : IRepositoryClassBase
     {
         public Guid Id { get; set; }
         public string Descricao { get; set; }
+        public int Ibge { get; set; }
     }
 }

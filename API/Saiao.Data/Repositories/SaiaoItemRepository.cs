@@ -1,4 +1,5 @@
-﻿using Saiao.Common.Resources;
+﻿using Saiao.Common.Exception;
+using Saiao.Common.Resources;
 using Saiao.Data.DataContext;
 using Saiao.Domain.Contract.Repositories;
 using Saiao.Domain.Model;
@@ -8,12 +9,12 @@ using System.Linq;
 
 namespace Saiao.Data.Repositories
 {
-    public class SaiaoItemRepository : IRepositoryDefault
+    public class SaiaoItemRepository : IRepositoryBase
     {
         private readonly SaiaoDataContext _db;
         public SaiaoItemRepository(SaiaoDataContext context) => _db = context;
 
-        public IRepositoryClass Alterar(IRepositoryClass classe)
+        public IRepositoryClassBase Alterar(IRepositoryClassBase classe)
         {
             var saiaoItem = (SaiaoItem)classe;
             ValidaDuplicidade(saiaoItem);
@@ -24,8 +25,8 @@ namespace Saiao.Data.Repositories
             return saiaoItem;
         }
 
-        public List<IRepositoryClass> Buscar() { return _db.SaiaoItems.ToList<IRepositoryClass>(); }
-        public IRepositoryClass Buscar(Guid id) { return _db.SaiaoItems.FirstOrDefault(coluna => coluna.Id == id); }
+        public List<IRepositoryClassBase> Buscar() { return _db.SaiaoItems.ToList<IRepositoryClassBase>(); }
+        public IRepositoryClassBase Buscar(Guid id) { return _db.SaiaoItems.FirstOrDefault(coluna => coluna.Id == id); }
         public void Dispose() => _db.Dispose();
 
         public void Excluir(Guid id)
@@ -34,7 +35,7 @@ namespace Saiao.Data.Repositories
             _db.SaveChanges();
         }
 
-        public IRepositoryClass Incluir(IRepositoryClass classe)
+        public IRepositoryClassBase Incluir(IRepositoryClassBase classe)
         {
             var saiaoItem = (SaiaoItem)classe;
             ValidaDuplicidade(saiaoItem);
@@ -55,7 +56,7 @@ namespace Saiao.Data.Repositories
                           select item).FirstOrDefault();
 
             if (result != null)
-                throw new Exception(ErrorMessage.RegistroDuplicado);
+                throw new DuplicidadeRegistroException(ErrorMessage.RegistroDuplicado);
         }
     }
 }

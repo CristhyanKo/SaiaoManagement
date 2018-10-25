@@ -3,7 +3,7 @@ using System;
 
 namespace Saiao.Domain.Model
 {
-    public class SaiaoItem : IRepositoryClass
+    public class SaiaoItem : IRepositoryClassBase
     {
         public Guid Id { get; set; }
         public Guid SaiaoId { get; set; }

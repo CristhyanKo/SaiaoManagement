@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Saiao.Domain.Contract.Repositories
 {
-    public interface IRepositoryDefault
+    public interface IRepositoryBase
     {
-        List<IRepositoryClass> Buscar();
-        IRepositoryClass Buscar(Guid id);
-        IRepositoryClass Incluir(IRepositoryClass classe);
-        IRepositoryClass Alterar(IRepositoryClass classe);
+        List<IRepositoryClassBase> Buscar();
+        IRepositoryClassBase Buscar(Guid id);
+        IRepositoryClassBase Incluir(IRepositoryClassBase classe);
+        IRepositoryClassBase Alterar(IRepositoryClassBase classe);
         void Excluir(Guid id);
         void Dispose();
     }

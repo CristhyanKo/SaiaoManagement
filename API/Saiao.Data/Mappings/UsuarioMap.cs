@@ -10,13 +10,12 @@ namespace Saiao.Data.Mappings
             ToTable(nameof(Usuario));
 
             HasKey(coluna => coluna.Id);
-            Property(coluna => coluna.Nome).IsRequired();
-            Property(coluna => coluna.Sobrenome).IsRequired();
-            Property(coluna => coluna.Senha).IsRequired();
-            Property(coluna => coluna.Email).IsRequired();
+            Property(coluna => coluna.PessoaId).IsRequired();
             Property(coluna => coluna.CargoId).IsRequired();
+            Property(coluna => coluna.Senha).IsRequired();
 
             HasRequired(coluna => coluna.Cargo);
+            HasRequired(coluna => coluna.Pessoa);
         }
     }
 }

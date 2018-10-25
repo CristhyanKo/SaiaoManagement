@@ -3,15 +3,17 @@ using System;
 
 namespace Saiao.Domain.Model
 {
-    public class Usuario : IRepositoryClass
+    public class Usuario : IRepositoryClassBase
     {
         public Guid Id { get; set; }
-        public string Nome { get; set; }
-        public string Sobrenome { get; set; }
-        public string Email { get; set; }
-        public string Senha { get; set; }
+        public Guid PessoaId { get; set; }
         public Guid CargoId { get; set; }
+        public string Senha { get; set; }
+        public Guid PessoaEmailId { get; set; }
+
         public virtual Cargo Cargo { get; set; }
+        public virtual Pessoa Pessoa { get; set; }
+        public virtual PessoaEmail PessoaEmail { get; set; }
 
         public void CriaSenha(string senha, string reSenha) {
             ComparaSenhas(senha, reSenha);

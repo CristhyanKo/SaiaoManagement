@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exception\DuplicaidadeRegistroException.cs" />
+    <Compile Include="Exception\UsuarioInvalidoException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\ErrorMessage.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -53,6 +54,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SucessMessage.resx</DependentUpon>
     </Compile>
+    <Compile Include="Security\Encrypt.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\ErrorMessage.resx">

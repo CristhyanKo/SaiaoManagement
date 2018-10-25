@@ -3,17 +3,14 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace Saiao.Data.Mappings
 {
-    public class ItemMap : EntityTypeConfiguration<Item>
+    public class EstadoMap : EntityTypeConfiguration<Estado>
     {
-        public ItemMap()
+        public EstadoMap()
         {
-            ToTable(nameof(Item));
+            ToTable(nameof(Estado));
 
             HasKey(coluna => coluna.Id);
             Property(coluna => coluna.Descricao).IsRequired();
-            Property(coluna => coluna.FornecedorId).IsRequired();
-
-            HasRequired(coluna => coluna.Fornecedor);
         }
     }
 }

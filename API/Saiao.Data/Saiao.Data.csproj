@@ -49,6 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext\SaiaoDataContext.cs" />
+    <Compile Include="Mappings\FornecedorMap.cs" />
+    <Compile Include="Mappings\PessoaTelefoneMap.cs" />
+    <Compile Include="Mappings\PessoaEmailMap.cs" />
+    <Compile Include="Mappings\PessoaEnderecoMap.cs" />
+    <Compile Include="Mappings\PessoaMap.cs" />
+    <Compile Include="Mappings\EstadoMap.cs" />
+    <Compile Include="Mappings\CidadeMap.cs" />
     <Compile Include="Mappings\CargoMap.cs" />
     <Compile Include="Mappings\ItemMap.cs" />
     <Compile Include="Mappings\SaiaoItemMap.cs" />
@@ -56,10 +63,17 @@
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PessoaTelefoneRepository.cs" />
+    <Compile Include="Repositories\PessoaEnderecoRepository.cs" />
+    <Compile Include="Repositories\PessoaRepository.cs" />
     <Compile Include="Repositories\CargoRepository.cs" />
+    <Compile Include="Repositories\FornecedorRepository.cs" />
+    <Compile Include="Repositories\CidadeRepository.cs" />
     <Compile Include="Repositories\ItemRepository.cs" />
     <Compile Include="Repositories\SaiaoItemRepository.cs" />
+    <Compile Include="Repositories\EstadoRepository.cs" />
     <Compile Include="Repositories\SaiaoRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Saiao.Common\Saiao.Common.csproj">

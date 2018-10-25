@@ -1,4 +1,5 @@
-﻿using Saiao.Common.Resources;
+﻿using Saiao.Common.Exception;
+using Saiao.Common.Resources;
 using Saiao.Data.DataContext;
 using Saiao.Domain.Contract.Repositories;
 using Saiao.Domain.Model;
@@ -8,12 +9,12 @@ using System.Linq;
 
 namespace Saiao.Data.Repositories
 {
-    public class ItemRepository : IRepositoryDefault
+    public class ItemRepository : IRepositoryBase
     {
         private readonly SaiaoDataContext _db;
         public ItemRepository(SaiaoDataContext context) => _db = context;
 
-        public IRepositoryClass Alterar(IRepositoryClass classe)
+        public IRepositoryClassBase Alterar(IRepositoryClassBase classe)
         {
             var item = (Item)classe;
             ValidaDuplicidade(item);
@@ -24,8 +25,8 @@ namespace Saiao.Data.Repositories
             return item;
         }
 
-        public List<IRepositoryClass> Buscar() { return _db.Itens.ToList<IRepositoryClass>(); }
-        public IRepositoryClass Buscar(Guid id) { return _db.Itens.FirstOrDefault(coluna => coluna.Id == id); }
+        public List<IRepositoryClassBase> Buscar() { return _db.Itens.ToList<IRepositoryClassBase>(); }
+        public IRepositoryClassBase Buscar(Guid id) { return _db.Itens.FirstOrDefault(coluna => coluna.Id == id); }
         public void Dispose() => _db.Dispose();
 
         public void Excluir(Guid id)
@@ -34,7 +35,7 @@ namespace Saiao.Data.Repositories
             _db.SaveChanges();
         }
 
-        public IRepositoryClass Incluir(IRepositoryClass classe)
+        public IRepositoryClassBase Incluir(IRepositoryClassBase classe)
         {
             var item = (Item)classe;
             ValidaDuplicidade(item);
@@ -52,7 +53,7 @@ namespace Saiao.Data.Repositories
                           select item).FirstOrDefault();
 
             if (result != null)
-                throw new Exception(ErrorMessage.RegistroDuplicado);
+                throw new DuplicidadeRegistroException(ErrorMessage.RegistroDuplicado);
         }
     }
 }

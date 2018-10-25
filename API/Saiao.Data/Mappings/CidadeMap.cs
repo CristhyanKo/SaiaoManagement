@@ -3,17 +3,17 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace Saiao.Data.Mappings
 {
-    public class ItemMap : EntityTypeConfiguration<Item>
+    public class CidadeMap : EntityTypeConfiguration<Cidade>
     {
-        public ItemMap()
+        public CidadeMap()
         {
-            ToTable(nameof(Item));
+            ToTable(nameof(Cidade));
 
             HasKey(coluna => coluna.Id);
             Property(coluna => coluna.Descricao).IsRequired();
-            Property(coluna => coluna.FornecedorId).IsRequired();
+            Property(coluna => coluna.EstadoId).IsRequired();
 
-            HasRequired(coluna => coluna.Fornecedor);
+            HasRequired(coluna => coluna.Estado);
         }
     }
 }
