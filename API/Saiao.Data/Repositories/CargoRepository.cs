@@ -1,6 +1,8 @@
-﻿using Saiao.Data.DataContext;
+﻿using Saiao.Common.Resources;
+using Saiao.Data.DataContext;
 using Saiao.Domain.Contract.Repositories;
 using Saiao.Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,9 +15,9 @@ namespace Saiao.Data.Repositories
 
         public IRepositoryClass Alterar(IRepositoryClass classe)
         {
-            var cargo = (Cargo)classe; // Usar uma interface vazia e fazer coverão explicita ou usar generics e fazer reflection para a conversão ???
+            var cargo = (Cargo)classe;
             //ValidaClasse
-            //ValidaDuplicidade
+            ValidaDuplicidade(cargo);
 
             _db.Entry(cargo).State = System.Data.Entity.EntityState.Modified;
             _db.SaveChanges();
@@ -40,12 +42,22 @@ namespace Saiao.Data.Repositories
         {
             var cargo = (Cargo)classe;
             //ValidaClasse
-            //ValidaDuplicidade
+            ValidaDuplicidade(cargo);
 
             _db.Cargos.Add(cargo);
             _db.SaveChanges();
 
             return cargo;
+        }
+
+        private void ValidaDuplicidade(Cargo cargo)
+        {
+            var result = (from item in _db.Cargos
+                          where item.Descricao == cargo.Descricao && item.Id != cargo.Id
+                          select item).FirstOrDefault();
+
+            if (result != null)
+                throw new Exception(ErrorMessage.RegistroDuplicado);
         }
     }
 }
